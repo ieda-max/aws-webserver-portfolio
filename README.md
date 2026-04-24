@@ -1,3 +1,9 @@
+## ■ 公開URL
+https://iemn.link
+ ■ 実行画面
+<img width="533" height="656" alt="スクリーンショット 2026-04-24 134145" src="https://github.com/user-attachments/assets/ecdb28d6-51db-4392-9d3e-bffde459ca15" />
+
+
 # AWS Lightsailを用いたWebサーバー構築（HTTPS対応）
 
 ## ■ 概要
