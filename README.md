@@ -26,29 +26,39 @@
 
 ## ■ 使用技術
 
-　　　* AWS（Lightsail）
-　　　* Route53（DNS）
-　　　* Nginx（Webサーバー）
-　　　* Let's Encrypt（SSL証明書）
-　　　* Linux（Ubuntu系）
+　　　・AWS（Lightsail）
+   
+　　　・Route53（DNS）
+   
+　　　・Nginx（Webサーバー）
+   
+　　　・Let's Encrypt（SSL証明書）
+   
+　　　・Linux（Ubuntu系）
 
 ---
 
 ## ■ 実装内容
 
 　　　1. LightsailでLinuxサーバーを作成
+   
 　　　2. Route53でドメインを取得し、AレコードでIPアドレスと紐付け
+   
 　　　3. Nginxをインストールし、Webサーバーを構築
+   
 　　　4. Certbotを使用してHTTPS化を実施
+   
 　　　5. ブラウザから https://iemn.link でアクセス確認
 
 ---
 
 ## ■ 工夫した点
 
-　　　* 問題発生時にいきなり修正するのではなく、原因の切り分けを行ってから対応
-　　　* エラーメッセージやログをもとに原因を特定
-　　　* 一つずつ検証しながら確実に解決
+　　　・問題発生時にいきなり修正するのではなく、原因の切り分けを行ってから対応
+   
+　　　・エラーメッセージやログをもとに原因を特定
+   
+　　　・一つずつ検証しながら確実に解決
 
 ---
 ## ■ 発生したトラブルと対応
@@ -105,17 +115,17 @@
    　　　  sudoを付けて管理者権限で実行することで対応しました。
         
            ---bash
-   　　　  sudo docker ps
+   　　　   sudo docker ps
            ---
            
 　     ③ nginx起動失敗（設定不整合）
 
  　　　  ■ 内容
    　　　
-      　   nginxの設定ファイルに問題はないものの、サービス起動時にエラーが発生しました。
+      　    nginxの設定ファイルに問題はないものの、サービス起動時にエラーが発生しました。
              
              ---bash
-   　　　    Job for nginx.service failed because the control process exited with error code.
+   　　　     Job for nginx.service failed because the control process exited with error code.
              ---
              
  　　　 ■ 原因
@@ -127,14 +137,14 @@
    　　　  nginxを一度完全停止し、プロセスをリセットしました。
              
              ---bash
-   　　　　  sudo systemctl stop nginx
-   　　　　  sudo pkill nginx
+   　　　　   sudo systemctl stop nginx
+   　　　　   sudo pkill nginx
              ---
              
-   　　　  その後、再度起動することで復旧しました。
+   　　　   その後、再度起動することで復旧しました。
              
              ---bash
-    　　　   sudo systemctl start nginx
+    　　　    sudo systemctl start nginx
              ---
              
 　     ④ 文字化け（文字コード問題）
