@@ -50,7 +50,7 @@
 　　　* 一つずつ検証しながら確実に解決
 
 ---
-### ■ 発生したトラブルと対応
+## ■ 発生したトラブルと対応
 
 　### ① ポート競合エラー（nginx起動失敗）
 
@@ -68,30 +68,30 @@
  
 　　　　　sudo lsof -i :80
 
-   　　　Dockerコンテナが原因と判明したため、以下のコマンドで停止・削除を実施しました。
+   　　　 Dockerコンテナが原因と判明したため、以下のコマンドで停止・削除を実施しました。
 
-　　　　　sudo docker ps
-　　　　　sudo docker stop <コンテナID>
-　　　　　sudo docker rm <コンテナID>
+　　　　　 sudo docker ps
+　　　　　 sudo docker stop <コンテナID>
+　　　　　 sudo docker rm <コンテナID>
 
    　　　その後、nginxを再起動し正常に起動することを確認しました。
 
-　　　　　sudo systemctl start nginx
-　　　　　sudo systemctl status nginx
+　　　　　 sudo systemctl start nginx
+　　　　　 sudo systemctl status nginx
  
 　### ② Docker権限エラー
 
-　　　 ■ 内容
+　　　  ■ 内容
     
    　　　dockerコマンド実行時に以下のエラーが発生しました。
 
    　　　permission denied while trying to connect to the Docker daemon socket
 
- 　　　■ 原因
+ 　　　 ■ 原因
     
    　　　現在のユーザーにDocker実行権限が付与されていなかったため。
 
- 　　　■ 対応
+ 　　　 ■ 対応
    
    　　　sudoを付けて管理者権限で実行することで対応しました。
 
@@ -99,42 +99,42 @@
    
 　###　③ nginx起動失敗（設定不整合）
 
- 　　　■ 内容
+ 　　　  ■ 内容
    　　　
-      　nginxの設定ファイルに問題はないものの、サービス起動時にエラーが発生しました。
+      　   nginxの設定ファイルに問題はないものの、サービス起動時にエラーが発生しました。
 
-   　　　Job for nginx.service failed because the control process exited with error code.
+   　　　  Job for nginx.service failed because the control process exited with error code.
 
- 　　　■ 原因
+ 　　　 ■ 原因
    
-   　　　certbot実行途中の影響により、設定やプロセス状態が不整合になっていた可能性。
+   　　　  certbot実行途中の影響により、設定やプロセス状態が不整合になっていた可能性。
 
-　　　 ■ 対応
+　　　  ■ 対応
    
-   　　　nginxを一度完全停止し、プロセスをリセットしました。
+   　　　  nginxを一度完全停止し、プロセスをリセットしました。
 
-   　　　　sudo systemctl stop nginx
-   　　　　sudo pkill nginx
+   　　　　 sudo systemctl stop nginx
+   　　　　 sudo pkill nginx
 
-   　　　その後、再度起動することで復旧しました。
+   　　　 その後、再度起動することで復旧しました。
 
-    　　　sudo systemctl start nginx
+    　　　  sudo systemctl start nginx
     
 　###　④ 文字化け（文字コード問題）
 
-　　　　■ 内容
+　　　　 ■ 内容
     
    　　　　Webページ表示時に日本語が文字化けしました。
    
- 　　　■ 原因
+ 　　　  ■ 原因
    
    　　　　HTMLに文字コード（UTF-8）の指定がなかったため。
 
- 　　　■ 対応
+ 　　　  ■ 対応
     
-   　　　HTMLの<head>内に以下を追加し解決しました。
+   　　　  HTMLの<head>内に以下を追加し解決しました。
    　　　　
-       　　meta charset="UTF-8"
+       　　　<meta charset="UTF-8">
 
 ---
 
