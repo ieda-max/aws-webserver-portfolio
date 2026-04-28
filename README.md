@@ -12,17 +12,26 @@ AWS Lightsail上にLinuxサーバーを構築し、独自ドメイン設定・We
 ## ■ 構成図
 
 [ユーザー（ブラウザ）]
-　　　　↓
-https://iemn.link
-　　　　↓
-[Route53（DNS）]
-　　　　↓
-[Lightsail（サーバー）]
-　　　　↓
-[Nginx（Webサーバー）]
-　　　　↓
-[HTML]
 
+　　　　↓
+    
+https://iemn.link
+
+　　　　↓
+    
+[Route53（DNS）]
+
+　　　　↓
+    
+[Lightsail（サーバー）]
+
+　　　　↓
+    
+[Nginx（Webサーバー）]
+
+　　　　↓
+    
+　　　[HTML]
 
 ---
 
