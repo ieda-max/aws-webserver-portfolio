@@ -78,34 +78,26 @@
 
 　　　　■ 対応
     
-         ---bash
 　　　　　sudo lsof -i :80
-         ---
          
    　　　  Dockerコンテナが原因と判明したため、以下のコマンドで停止・削除を実施しました。
          
-          ---bash
 　　　　　 sudo docker ps
 　　　　　 sudo docker stop <コンテナID>
 　　　　　 sudo docker rm <コンテナID>
-          ---
           
    　　　その後、nginxを再起動し正常に起動することを確認しました。
-           
-           ---bash 
+            
 　　　　　 sudo systemctl start nginx
 　　　　　 sudo systemctl status nginx
-          --- 
-          
+           
 　    ② Docker権限エラー
 
 　　　  ■ 内容
     
    　　　 dockerコマンド実行時に以下のエラーが発生しました。
          
-          ---bash
    　　　 permission denied while trying to connect to the Docker daemon socket
-          ---
           
  　　　 ■ 原因
     
@@ -115,9 +107,7 @@
    
    　　　  sudoを付けて管理者権限で実行することで対応しました。
         
-           ---bash
    　　　   sudo docker ps
-           ---
            
 　     ③ nginx起動失敗（設定不整合）
 
@@ -125,28 +115,22 @@
    　　　
       　    nginxの設定ファイルに問題はないものの、サービス起動時にエラーが発生しました。
              
-             ---bash
    　　　     Job for nginx.service failed because the control process exited with error code.
-             ---
              
- 　　　 ■ 原因
+ 　　　 　■ 原因
    
    　　　  certbot実行途中の影響により、設定やプロセス状態が不整合になっていた可能性。
 
-　　　  ■ 対応
+　　　  　■ 対応
    
    　　　  nginxを一度完全停止し、プロセスをリセットしました。
              
-             ---bash
    　　　　   sudo systemctl stop nginx
    　　　　   sudo pkill nginx
-             ---
              
    　　　   その後、再度起動することで復旧しました。
              
-             ---bash
     　　　    sudo systemctl start nginx
-             ---
              
 　     ④ 文字化け（文字コード問題）
 
@@ -168,17 +152,21 @@
 
 ## ■ 学んだこと
 
-　　　* トラブル対応では「原因の切り分け」が重要であること
-　　　* ポートや権限など、基礎的な仕組みの理解の重要性
-　　　* 実際に手を動かして構築することで理解が深まること
+　　　・トラブル対応では「原因の切り分け」が重要であること
+   
+　　　・ポートや権限など、基礎的な仕組みの理解の重要性
+   
+　　　・実際に手を動かして構築することで理解が深まること
 
 ---
 
 ## ■ 今後の改善点
 
-　　　* AWSの複数サービス（EC2やALBなど）を組み合わせた構成の理解
-　　　* セキュリティ設定（ファイアウォールやアクセス制御）の強化
-　　　* ログ監視や運用面の知識の向上
+　　　・AWSの複数サービス（EC2やALBなど）を組み合わせた構成の理解
+   
+　　　・セキュリティ設定（ファイアウォールやアクセス制御）の強化
+   
+　　　・ログ監視や運用面の知識の向上
 
 ---
 
