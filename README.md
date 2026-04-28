@@ -13,9 +13,7 @@ AWS Lightsail上にLinuxサーバーを構築し、独自ドメイン設定・We
 
 [ユーザー（ブラウザ）]
 
-　　　　↓
-    
-https://iemn.link
+　https://iemn.link
 
 　　　　↓
     
