@@ -52,7 +52,7 @@
 ---
 ## ■ 発生したトラブルと対応
 
-　### ① ポート競合エラー（nginx起動失敗）
+　    ① ポート競合エラー（nginx起動失敗）
 
 　　　　■ 内容
 
@@ -79,7 +79,7 @@
 　　　　　 sudo systemctl start nginx
 　　　　　 sudo systemctl status nginx
  
-　### ② Docker権限エラー
+　    ② Docker権限エラー
 
 　　　  ■ 内容
     
@@ -97,7 +97,7 @@
 
    　　　  sudo docker ps
    
-　###　③ nginx起動失敗（設定不整合）
+　     ③ nginx起動失敗（設定不整合）
 
  　　　  ■ 内容
    　　　
@@ -120,7 +120,7 @@
 
     　　　   sudo systemctl start nginx
     
-　###　④ 文字化け（文字コード問題）
+　     ④ 文字化け（文字コード問題）
 
 　　　　 ■ 内容
     
@@ -156,7 +156,7 @@
 
 ## ■ 実行画面
 
-　　　<img width="533" height="656" alt="スクリーンショット 2026-04-24 134145" src="https://github.com/user-attachments/assets/ecdb28d6-51db-4392-9d3e-bffde459ca15" />
+　　　  <img width="533" height="656" alt="スクリーンショット 2026-04-24 134145" src="https://github.com/user-attachments/assets/ecdb28d6-51db-4392-9d3e-bffde459ca15" />
 
 ## ■ 公開URL
 
