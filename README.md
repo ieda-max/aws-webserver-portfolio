@@ -65,28 +65,28 @@
 　　　　　ポート80が別プロセス（Docker）で使用されていたため。
 
 　　　　■ 対応
- 
+         ---bash
 　　　　　sudo lsof -i :80
-
+         ---
    　　　  Dockerコンテナが原因と判明したため、以下のコマンドで停止・削除を実施しました。
-
+          ---bash
 　　　　　 sudo docker ps
 　　　　　 sudo docker stop <コンテナID>
 　　　　　 sudo docker rm <コンテナID>
-
+          ---
    　　　その後、nginxを再起動し正常に起動することを確認しました。
-
+           ---bash 
 　　　　　 sudo systemctl start nginx
 　　　　　 sudo systemctl status nginx
- 
+          --- 
 　    ② Docker権限エラー
 
 　　　  ■ 内容
     
    　　　 dockerコマンド実行時に以下のエラーが発生しました。
-
+          ---bash
    　　　 permission denied while trying to connect to the Docker daemon socket
-
+          ---
  　　　 ■ 原因
     
    　　　 現在のユーザーにDocker実行権限が付与されていなかったため。
@@ -94,17 +94,17 @@
  　　　 ■ 対応
    
    　　　  sudoを付けて管理者権限で実行することで対応しました。
-
+           ---bash
    　　　  sudo docker ps
-   
+           ---
 　     ③ nginx起動失敗（設定不整合）
 
  　　　  ■ 内容
    　　　
       　   nginxの設定ファイルに問題はないものの、サービス起動時にエラーが発生しました。
-
+             ---bash
    　　　    Job for nginx.service failed because the control process exited with error code.
-
+             ---
  　　　 ■ 原因
    
    　　　  certbot実行途中の影響により、設定やプロセス状態が不整合になっていた可能性。
@@ -112,14 +112,14 @@
 　　　  ■ 対応
    
    　　　  nginxを一度完全停止し、プロセスをリセットしました。
-
+             ---bash
    　　　　  sudo systemctl stop nginx
    　　　　  sudo pkill nginx
-
+             ---
    　　　 その後、再度起動することで復旧しました。
-
+             ---bash
     　　　   sudo systemctl start nginx
-    
+             ---
 　     ④ 文字化け（文字コード問題）
 
 　　　　 ■ 内容
@@ -133,9 +133,9 @@
  　　　  ■ 対応
     
    　　　  HTMLの<head>内に以下を追加し解決しました。
-   　　　　
+   　　　　  ---bash
        　　　<meta charset="UTF-8">
-
+            ---
 ---
 
 ## ■ 学んだこと
