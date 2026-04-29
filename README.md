@@ -81,7 +81,7 @@ nginx起動時に以下のエラーが発生しました。
 
 ###　② Docker権限エラー
 
-内容
+**内容**
 
 "permission denied while trying to connect to the Docker daemon socket"
 
@@ -89,21 +89,21 @@ nginx起動時に以下のエラーが発生しました。
 
 Docker実行権限が付与されていなかったため。
 
-対応
+**対応**
 
 sudo docker ps
 
 ### ③ nginx起動エラー
 
-内容
+**内容**
 
 "Job for nginx.service failed because the control process exited with error code."
 
-原因
+**原因**
 
 設定やプロセス状態の不整合。
 
-対応
+**対応**
 
 sudo systemctl stop nginx
 
@@ -113,15 +113,15 @@ sudo systemctl start nginx
 
 ### ④ 文字化け
 
-内容
+**内容**
 
 Webページ表示時に日本語が文字化けした。
 
-原因
+**原因**
 
 文字コード未設定。
 
-対応
+**対応**
 
 <meta charset="UTF-8">
 
