@@ -54,7 +54,7 @@ AWS Lightsail上にLinuxサーバーを構築し、独自ドメイン設定・We
 
 nginx起動時に以下のエラーが発生しました。
 
-"nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)"
+nginx: [emerg] bind() to 0.0.0.0:80 failed (98: Address already in use)
 
 
 原因
@@ -63,23 +63,23 @@ nginx起動時に以下のエラーが発生しました。
 
 対応
 
-"sudo lsof -i :80"
+sudo lsof -i :80
 
-"sudo docker ps"
+sudo docker ps
 
-"sudo docker stop <コンテナID>"
+sudo docker stop <コンテナID>
 
-"sudo docker rm <コンテナID>"
+sudo docker rm <コンテナID>
 
-"sudo systemctl start nginx"
+sudo systemctl start nginx
 
-"sudo systemctl status nginx"
+sudo systemctl status nginx
 
 ② Docker権限エラー
 
 内容
 
-"permission denied while trying to connect to the Docker daemon socket"
+permission denied while trying to connect to the Docker daemon socket
 
 原因
 
@@ -93,7 +93,7 @@ sudo docker ps
 
 内容
 
-"Job for nginx.service failed because the control process exited with error code."
+Job for nginx.service failed because the control process exited with error code.
 
 原因
 
