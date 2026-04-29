@@ -119,7 +119,7 @@ Webページ表示時に日本語が文字化けした。
 
 対応
 
-<meta charset="UTF-8">
+meta charset="UTF-8"
 
 ■ 工夫した点
 
