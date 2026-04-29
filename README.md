@@ -48,7 +48,7 @@ AWS Lightsail上にLinuxサーバーを構築し、独自ドメイン設定・We
 
 ---
 
-### ① ポート競合エラー（nginx起動失敗）
+① ポート競合エラー（nginx起動失敗）
 
 内容
 
@@ -75,7 +75,7 @@ nginx起動時に以下のエラーが発生しました。
 
 "sudo systemctl status nginx"
 
-###　② Docker権限エラー
+② Docker権限エラー
 
 内容
 
@@ -89,7 +89,7 @@ Docker実行権限が付与されていなかったため。
 
 sudo docker ps
 
-### ③ nginx起動エラー
+③ nginx起動エラー
 
 内容
 
@@ -107,7 +107,7 @@ sudo pkill nginx
 
 sudo systemctl start nginx
 
-### ④ 文字化け
+④ 文字化け
 
 内容
 
